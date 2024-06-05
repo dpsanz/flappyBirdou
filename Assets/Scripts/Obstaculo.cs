@@ -6,11 +6,12 @@ public class Obstaculo : MonoBehaviour
 {
     [SerializeField]
     private float velocidade = 0.6f;
-    // Start is called before the first frame update
+    [SerializeField]
+    private float variacaoY;
 
     private void Awake()
     {
-        this.transform.Translate(Vector3.up * Random.Range(-1, 1));
+        this.transform.Translate(Vector3.up * Random.Range(-variacaoY, variacaoY));
     }
 
     // Update is called once per frame
@@ -18,5 +19,16 @@ public class Obstaculo : MonoBehaviour
     {
         this.transform.Translate(Vector3.left * velocidade * Time.deltaTime);
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        this.Destruir();
+        Debug.Log("1");
+    }
+
+    void Destruir()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
