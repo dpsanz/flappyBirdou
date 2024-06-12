@@ -20,7 +20,6 @@ public class Bird : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Clicou");
             //chama o método impulsionar
             //o this serve para indicar que é o objeto ativo naquele momento que recerá ação
             this.Impulsionar();
